@@ -1,5 +1,5 @@
 import os, sys, pickle
-#from mesClasses import *
+from mesClasses import *
 
 
 ficheUtilisateur = open("utilisateurs.txt","r") #j'ouvre le fichier qui contient les noms des utilisateurs
@@ -14,13 +14,16 @@ userName = input("please enter user name : ") #je demande à l'utilisateur de s'
 
 #On vérifie si l'utilisateur existe. en fonction on envoie un message adapté
 if userName in listeUtilisateur :
+    userName = User()
     print("Rebonjour ",userName)
 else :
+    userName = User()
     print("Bienvenue ", userName)
     ficheUtilisateur.write("\n" + userName)
     ficheUtilisateur = open("utilisateurs.txt","r") #j'ouvre le fichier qui contient les noms des utilisateurs
     listeUtilisateur = ficheUtilisateur.read()
     print(listeUtilisateur)
    
+
 
 ficheUtilisateur.close()
